@@ -1,1 +1,0 @@
-0:0:0:0:0:0:0:1 - - [06/Mar/2025:11:28:30 -0300] "GET /BookStoreWebSite/index.jsp HTTP/1.1" 200 52
