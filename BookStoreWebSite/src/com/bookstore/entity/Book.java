@@ -1,4 +1,4 @@
-package src.com.bookstore.entity;
+package com.bookstore.entity;
 
 import com.mysql.cj.jdbc.Blob;
 import jakarta.persistence.*;
