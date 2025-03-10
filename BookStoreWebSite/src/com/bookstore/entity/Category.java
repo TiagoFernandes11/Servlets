@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "category")
 public class Category {
@@ -18,6 +17,10 @@ public class Category {
     private int categoryId;
 
     private String name;
+
+	public Category() {
+		super();
+	}
 
 	public int getCategoryId() {
 		return categoryId;

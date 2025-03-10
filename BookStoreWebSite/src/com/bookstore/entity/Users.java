@@ -20,6 +20,10 @@ public class Users {
     @Column(name = "full_name")
     private String fullName;
 
+	public Users() {
+		super();
+	}
+
 	public int getUserId() {
 		return userId;
 	}
