@@ -9,6 +9,8 @@ public interface GenericDAO<T> {
     public T create(T t);
 
     public T update(Users user);
+    
+    public T get(Object userId);
 
     public void delete(Object id);
 
