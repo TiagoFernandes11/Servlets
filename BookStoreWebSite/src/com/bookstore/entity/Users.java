@@ -1,11 +1,18 @@
 package com.bookstore.entity;
 
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "users")
+@NamedQueries({
+	@NamedQuery(name = "Users.findAll", query = "select u from Users u order by u.fullName"),
+	@NamedQuery(name = "Users.countAll", query = "select count(u.userId) from Users u")
+})
 public class Users {
 
     @Id

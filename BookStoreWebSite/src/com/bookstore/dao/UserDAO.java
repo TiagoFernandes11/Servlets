@@ -1,10 +1,12 @@
 package com.bookstore.dao;
 
-import jakarta.persistence.EntityManager;
-import com.bookstore.entity.Users;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.bookstore.entity.Users;
+import com.mysql.cj.Query;
+
+import jakarta.persistence.EntityManager;
 
 public class UserDAO extends JpaDAO<Users> implements GenericDAO<Users>{
 
@@ -29,18 +31,16 @@ public class UserDAO extends JpaDAO<Users> implements GenericDAO<Users>{
 
     @Override
     public void delete(Object id) {
-    	//todo
+    	super.remove(Users.class, id);
     }
 
     @Override
     public List<Users> listAll() {
-    	//todo
-        return new ArrayList<Users>();
+        return super.findWithNamedQuery("Users.findAll");
     }
 
     @Override
     public long count() {
-    	//todo
-        return 0;
+    	return super.countWithNamedQuery("Users.countAll");
     }
 }

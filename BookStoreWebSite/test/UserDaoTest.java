@@ -1,3 +1,5 @@
+import java.util.List;
+
 import com.bookstore.dao.UserDAO;
 import com.bookstore.entity.Users;
 
@@ -7,11 +9,12 @@ public class UserDaoTest {
 	public static void main(String args[]) {
 		UserDAO userDao = new UserDAO(Persistence.createEntityManagerFactory("BookStoreWebSite").createEntityManager());
 		
-		Users users = userDao.get(1);
-				
-		if(users != null) {
-			System.out.println(users.getEmail());
+		List<Users> users = userDao.listAll();
+		
+		for(Users user : users) {
+			System.out.println(user.getUserId() + ", " + user.getEmail() + ", " + user.getFullName());
 		}
 		
+		System.out.println("Count: " + userDao.count());
 	}
 }
