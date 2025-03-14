@@ -1,12 +1,12 @@
 package com.bookstore.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.bookstore.entity.Users;
-import com.mysql.cj.Query;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Query;
 
 public class UserDAO extends JpaDAO<Users> implements GenericDAO<Users>{
 
@@ -42,5 +42,17 @@ public class UserDAO extends JpaDAO<Users> implements GenericDAO<Users>{
     @Override
     public long count() {
     	return super.countWithNamedQuery("Users.countAll");
+    }
+    
+    public Users findByEmail(String email) {
+    	Query query = entityManager.createQuery("select u from Users u where u.email='" + email+ "'");
+    	Users user = null;
+    	try {
+    		user = (Users) query.getSingleResult();
+    	} catch (NoResultException e){
+    		
+    	}
+    	
+    	return user;
     }
 }

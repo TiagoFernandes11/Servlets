@@ -12,7 +12,7 @@
 	 
 	 <div align="center">
 	 	<h2>Users Management</h2>
-	 	<h3><a href="">Create new user</a></h3>
+	 	<h3><a href="create_user">Create new user</a></h3>
 	 </div>
 	 
 	 <div align="center">

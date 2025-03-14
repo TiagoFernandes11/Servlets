@@ -1,6 +1,7 @@
 package com.bookstore.service;
 
 import java.util.List;
+import java.util.Objects;
 
 import com.bookstore.dao.UserDAO;
 import com.bookstore.entity.Users;
@@ -20,6 +21,16 @@ public class UsersServices {
 	
 	public List<Users> listAll(){
 		return userDao.listAll();
+	}
+
+	public Boolean createUser(Users user) {
+		Users userFromDB = userDao.findByEmail(user.getEmail());
+		if(Objects.isNull(userFromDB)) {
+			userDao.create(user);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 }
