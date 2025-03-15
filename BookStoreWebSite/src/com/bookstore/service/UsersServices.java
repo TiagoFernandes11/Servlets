@@ -19,6 +19,10 @@ public class UsersServices {
 		this.userDao = new UserDAO(entityManager);
 	}
 	
+	public Users findUser(Object userId) {
+		return userDao.find(Users.class, userId);
+	}
+	
 	public List<Users> listAll(){
 		return userDao.listAll();
 	}
@@ -31,6 +35,10 @@ public class UsersServices {
 		} else {
 			return false;
 		}
+	}
+	
+	public void updateUser(Users user) {
+		userDao.update(user);
 	}
 	
 }

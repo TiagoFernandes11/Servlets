@@ -31,7 +31,7 @@
     			<td>${user.email}</td>
     			<td>${user.fullName}</td>
     			<td>
-    				<a href="#">edit</a> 
+    				<a href="update_user?id=${user.userId}">edit</a> 
     				<a href="#">delete</a>
     			</td>
   			</tr>
