@@ -8,11 +8,11 @@ public interface GenericDAO<T> {
 
     public T create(T t);
 
-    public T update(Users user);
+    public T update(T t);
     
-    public T get(Object userId);
+    public T get(Object entityId);
 
-    public void delete(Object id);
+    public void delete(Object entityId);
 
     public List<T> listAll();
 

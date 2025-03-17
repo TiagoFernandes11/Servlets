@@ -33,12 +33,10 @@
     	</c:if>
 		<c:if test="${not empty user.userId}">
 			<form style="display:flex; flex-direction:column; " action="update_user?id=${user.userId}" method="post" onsubmit="return validateInput()">
-		</c:if>		
-		<c:if test="${not empty user.userId}">
 			<div>
 				ID: ${user.userId}
 			</div>
-		</c:if>			
+		</c:if>	
 		<div>
 			<label for="fullName">Full name:</label>
 			<input type="text" name="fullName" id="fullName" value="${user.fullName}">
@@ -54,6 +52,7 @@
 		<div>
 			<input type="submit">
 		</div>
+		</form>
 	</div>
 	
 	

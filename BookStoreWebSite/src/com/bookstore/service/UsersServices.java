@@ -41,4 +41,8 @@ public class UsersServices {
 		userDao.update(user);
 	}
 	
+	public void deleteUser(Object userId) {
+		userDao.delete(userId);
+	}
+	
 }

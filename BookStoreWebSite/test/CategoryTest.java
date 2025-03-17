@@ -1,3 +1,6 @@
+import java.util.List;
+
+import com.bookstore.dao.CategoryDAO;
 import com.bookstore.dao.UserDAO;
 import com.bookstore.entity.Category;
 import com.bookstore.entity.Users;
@@ -12,14 +15,27 @@ public class CategoryTest {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebSite");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
-		Users user = new Users();
-		user.setEmail("teste@teste.com");
-		user.setFullName("Teste 3");
-		user.setPassword("teste");
+		CategoryDAO categoryDAO = new CategoryDAO(entityManager);
 		
-		UserDAO userDAO = new UserDAO(entityManager);
-		userDAO.create(user);
+		Category category = new Category();
+		category.setName("Computaçã");
 		
+		categoryDAO.create(category);
 		
+		category.setName("Computação");
+		
+		System.out.println("categoryDao.get" + categoryDAO.get(7).getName());
+		
+		List<Category> categories = categoryDAO.listAll();
+		
+		System.out.println("categoryDao.listAll" + categories);
+		
+		System.out.println("categoryDao.count" + categoryDAO.count());
+		
+		categoryDAO.delete(7);
+		
+		categories = categoryDAO.listAll();
+		
+		System.out.println(categories);
 	}
 }

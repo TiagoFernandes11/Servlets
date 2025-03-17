@@ -9,6 +9,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "category")
+@NamedQueries({
+	@NamedQuery(name = "Category.findAll", query = "select c from Category c order by c.name"),
+	@NamedQuery(name = "Category.count", query = "select count(c.categoryId) from Category c")
+})
 public class Category {
 
     @Id

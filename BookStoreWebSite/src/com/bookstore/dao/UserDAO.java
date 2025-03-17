@@ -45,7 +45,7 @@ public class UserDAO extends JpaDAO<Users> implements GenericDAO<Users>{
     }
     
     public Users findByEmail(String email) {
-    	Query query = entityManager.createQuery("select u from Users u where u.email='" + email+ "'");
+    	Query query = entityManager.createQuery("select u from Users u where u.email='" + email + "'");
     	Users user = null;
     	try {
     		user = (Users) query.getSingleResult();

@@ -14,8 +14,19 @@
 	 	<h2>Users Management</h2>
 	 	<h3><a href="create_user">Create new user</a></h3>
 	 </div>
+
 	 
 	 <div align="center">
+	 	<c:if test="${not empty deletedUserId}">
+	 		<div style="color: green;">
+           		User with id:${deletedUserId} deleted
+        	</div>
+	 	</c:if>	 
+	 	<c:if test="${not empty notDeletedUserId}">
+	 		<div style="color: red;">
+           		Could not find user with ID: ${notDeletedUserId}, or it might have been deleted by another admin.
+        	</div>
+	 	</c:if>	 
 	 	<table border="1" cellpadding="5">
   			<tr>
   				<th>Index</th>
@@ -32,7 +43,8 @@
     			<td>${user.fullName}</td>
     			<td>
     				<a href="update_user?id=${user.userId}">edit</a> 
-    				<a href="#">delete</a>
+    				<a href="delete_user?id=${user.userId}" 
+    				   onclick="return confirm('Are you sure you want to delete user id: ${user.userId} ?')">delete</a>
     			</td>
   			</tr>
 			</c:forEach>
