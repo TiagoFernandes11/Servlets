@@ -35,19 +35,22 @@
        		 </div>
     	</c:if>
     	
-    	<c:if test="${empty category}">
-			<form action="create_category" method="post">
-    	</c:if>
+    	<div align="center" style="width: fit-content">
     	
-    	<c:if test="${not empty category}">
-			<form action="update_category?id=${category.categoryId}" method="post">
-    	</c:if>
+    		<c:if test="${empty category}">
+				<form action="create_category" method="post" style="display:flex; flex-direction:column; align-items: flex-end;"> 
+    		</c:if>
     	
-    		<div>Category ID: ${category.categoryId}</div>
-			<label for="category_name">Name: </label>
-			<input id="category_name" type="text" name="name"/>
-			<input type="submit" value="Submit">
-		</form>
+    		<c:if test="${not empty category}">
+				<form action="update_category?id=${category.categoryId}" method="post" style="display:flex; flex-direction:column; align-items: flex-end;">
+   		 	</c:if>
+    	
+    			<div>Category ID: ${category.categoryId}</div>
+				<label for="category_name">Name: </label>
+				<input id="category_name" type="text" name="name" value="${category.name}"/>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
 		
 		<jsp:directive.include file = "footer.jsp" />
 		</div>

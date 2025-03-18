@@ -1,4 +1,4 @@
-package com.bookstore.controller.admin;
+package com.bookstore.controller.admin.user;
 
 import java.io.IOException;
 
@@ -13,8 +13,9 @@ import com.bookstore.entity.Users;
 import com.bookstore.service.UsersServices;
 
 
-@WebServlet("/admin/update_user")
-public class UpdateUserServlet extends HttpServlet {
+@WebServlet("/admin/create_user")
+public class CreateUserServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 	private UsersServices usersServices;
 	
@@ -23,29 +24,26 @@ public class UpdateUserServlet extends HttpServlet {
 	       super.init();
 	       this.usersServices = new UsersServices();
 	   }
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users user = usersServices.findUser(request.getParameter("id"));
-		
-		request.setAttribute("user", user);
-		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/user_form.jsp");
 		requestDispatcher.forward(request, response);
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Users user = new Users();
-		
-		user.setUserId(Integer.parseInt(request.getParameter("id")));
-		user.setFullName(request.getParameter("fullName"));
 		user.setEmail(request.getParameter("email"));
+		user.setFullName(request.getParameter("fullName"));
 		user.setPassword(request.getParameter("password"));
 		
-		usersServices.updateUser(user);
+		if (usersServices.createUser(user)) {
+	        request.setAttribute("success", "User successfully created");
+	    } else {
+	        request.setAttribute("error", "This email is already registered");
+	    }
 		
-		request.setAttribute("success", "User successfuly updated");
-		
-		doGet(request, response);
+		this.doGet(request, response);
 	}
 
 }

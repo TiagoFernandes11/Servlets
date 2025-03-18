@@ -28,31 +28,33 @@
            		 Success: ${success}
        		 </div>
     	</c:if>
-    	<c:if test="${empty user.userId}">
-			<form style="display:flex; flex-direction:column; " action="create_user" method="post" onsubmit="return validateInput()">
-    	</c:if>
-		<c:if test="${not empty user.userId}">
-			<form style="display:flex; flex-direction:column; " action="update_user?id=${user.userId}" method="post" onsubmit="return validateInput()">
+		<div align="center" style="width: fit-content">
+	    	<c:if test="${empty user.userId}">
+				<form style="display:flex; flex-direction:column; align-items: flex-end;" action="create_user" method="post" onsubmit="return validateInput()">
+    		</c:if>
+			<c:if test="${not empty user.userId}">
+				<form style="display:flex; flex-direction:column; align-items: flex-end; " action="update_user?id=${user.userId}" method="post" onsubmit="return validateInput()">
+				<div>
+					ID: ${user.userId}
+				</div>
+			</c:if>	
 			<div>
-				ID: ${user.userId}
+				<label for="fullName">Full name:</label>
+				<input type="text" name="fullName" id="fullName" value="${user.fullName}">
 			</div>
-		</c:if>	
-		<div>
-			<label for="fullName">Full name:</label>
-			<input type="text" name="fullName" id="fullName" value="${user.fullName}">
+			<div>
+				<label for="email">Email:</label>
+				<input type="text" name="email" id="email" value="${user.email}">
+			</div>
+			<div>
+				<label for="password">Password:</label>
+				<input type="password" name="password" id="password" value="${user.password}">
+			</div>
+			<div>
+				<input type="submit">
+			</div>
+			</form>
 		</div>
-		<div>
-			<label for="email">Email:</label>
-			<input type="text" name="email" id="email" value="${user.email}">
-		</div>
-		<div>
-			<label for="password">Password:</label>
-			<input type="password" name="password" id="password" value="${user.password}">
-		</div>
-		<div>
-			<input type="submit">
-		</div>
-		</form>
 	</div>
 	
 	

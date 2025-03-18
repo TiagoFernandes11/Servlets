@@ -8,7 +8,9 @@
 </head>
 <body>
 	<jsp:directive.include file = "header.jsp" />
-	<h1>Welcome to Book Store</h1>
+	<div align="center">
+		<h1>Welcome to Book Store</h1>
+	</div>
 	<jsp:directive.include file = "footer.jsp" />	
 </body>
 </html>

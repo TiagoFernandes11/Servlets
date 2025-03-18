@@ -39,7 +39,8 @@
 					<th>${category.name}</th>
 					<th>
 						<a href="update_category?id=${category.categoryId}">edit</a> 
-						<a href="delete_category?id=${category.categoryId}">delete</a>
+						<a href="delete_category?id=${category.categoryId}" 
+						onclick="return confirm('Are you sure you want to delete category: ${category.name} ?')">delete</a>
 					</th>
 				</tr>
 			</c:forEach>

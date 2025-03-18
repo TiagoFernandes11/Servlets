@@ -1,4 +1,4 @@
-package com.bookstore.controller.admin;
+package com.bookstore.controller.admin.category;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,13 +23,14 @@ public class DeleteCategoryServlet extends HttpServlet {
 		CategoryServices categoryServices = new CategoryServices();
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
+		Category category = categoryServices.findCategory(id);
 		
 		boolean isDeleted = categoryServices.delete(id);
 		
 		if(isDeleted) {
-			request.setAttribute("deleted", "Category ID: " + id + " successfully deleted");
+			request.setAttribute("deleted", "Category: " + category.getName() + " successfully deleted");
 		} else {
-			request.setAttribute("notDeleted", "Category ID: " + id + " is already deleted");
+			request.setAttribute("notDeleted", "Category: " + category.getName() + " is already deleted");
 		}
 
 		List<Category> categories = categoryServices.findAll();

@@ -1,4 +1,4 @@
-package com.bookstore.controller.admin;
+package com.bookstore.controller.admin.category;
 
 import java.io.IOException;
 
@@ -42,9 +42,9 @@ public class UpdateCategoryServlet extends HttpServlet {
 		boolean isUpdated = categoryServices.update(category);
 		
 		if(isUpdated) {
-			request.setAttribute("success", "Category id: " + category.getCategoryId() + " successfully updated");
+			request.setAttribute("success", "Category: " + category.getName() + " successfully updated");
 		} else {
-			request.setAttribute("error", "Category id: " + category.getCategoryId() + " could not be founded");
+			request.setAttribute("error", "Category: " + category.getName() + " could not be founded");
 		}
 		
 		doGet(request, response);
