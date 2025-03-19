@@ -59,36 +59,32 @@
 	
 	
 	<script>
-  function validateInput() {
-    // Obtém os valores dos campos do formulário
-    var fullName = document.getElementById('fullName').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var password = document.getElementById('password').value.trim();
-    
-    // Verifica se o campo de 'fullName' está vazio
-    if (fullName === '') {
-      alert('Full name is required!');
-      document.getElementById('fullName').focus(); // Foca no campo
-      return false; // Impede o envio do formulário
-    }
+	function validateInput() {
+	    var fullName = document.getElementById('fullName').value.trim();
+	    var email = document.getElementById('email').value.trim();
+	    var password = document.getElementById('password').value.trim();
+	    
+	    if (fullName === '') {
+	      alert('Full name is required!');
+	      document.getElementById('fullName').focus();
+	      return false;
+	    }
 
-    // Verifica se o campo de 'email' está vazio
-    if (email === '') {
-      alert('Email is required!');
-      document.getElementById('email').focus(); // Foca no campo
-      return false; // Impede o envio do formulário
-    }
+	    if (email === '') {
+	      alert('Email is required!');
+	      document.getElementById('email').focus();
+	      return false;
+	    }
 
-    // Verifica se o campo de 'password' está vazio
-    if (password === '') {
-      alert('Password is required!');
-      document.getElementById('password').focus(); // Foca no campo
-      return false; // Impede o envio do formulário
-    }
+	    if (password === '') {
+	      alert('Password is required!');
+	      document.getElementById('password').focus();
+	      return false;
+	    }
 
-    // Se todos os campos estiverem preenchidos, permite o envio
-    return true;
-  }
+	    return true;
+	}
+
 </script>
 	<jsp:directive.include file = "footer.jsp" />
 </body>

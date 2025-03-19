@@ -38,21 +38,34 @@
     	<div align="center" style="width: fit-content">
     	
     		<c:if test="${empty category}">
-				<form action="create_category" method="post" style="display:flex; flex-direction:column; align-items: flex-end;"> 
+				<form action="create_category" method="post" style="display:flex; flex-direction:column; align-items: flex-end;" onsubmit="validateForm(event)"> 
     		</c:if>
     	
     		<c:if test="${not empty category}">
-				<form action="update_category?id=${category.categoryId}" method="post" style="display:flex; flex-direction:column; align-items: flex-end;">
-   		 	</c:if>
-    	
+				<form action="update_category?id=${category.categoryId}" method="post" style="display:flex; flex-direction:column; align-items: flex-end;" onsubmit="validateForm(event)">
     			<div>Category ID: ${category.categoryId}</div>
-				<label for="category_name">Name: </label>
-				<input id="category_name" type="text" name="name" value="${category.name}"/>
+   		 	</c:if>
+    			<div>
+    				<label for="category_name">Name: </label>
+					<input id="category_name" type="text" name="name" value="${category.name}"/>
+    			</div>
+				
 				<input type="submit" value="Submit">
 			</form>
 		</div>
 		
 		<jsp:directive.include file = "footer.jsp" />
+		<script>
+			function validateForm(event){
+				let name = document.getElementById("category_name").value.trim();
+				
+				if(name === ''){
+					alert("Name is required!");
+					document.getElementById("category_name").focus();
+					event.preventDefault();
+				}
+			}
+		</script>
 		</div>
 	</body>
 </html>

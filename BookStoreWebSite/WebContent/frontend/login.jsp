@@ -13,7 +13,7 @@
 		<input type="text" name="login" id="login"/>
 		<label for="password">Password: </label>
 		<input type="password" name="password" id="password"/>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Login">
 	</form>
 	<jsp:directive.include file = "footer.jsp" />
 </body>

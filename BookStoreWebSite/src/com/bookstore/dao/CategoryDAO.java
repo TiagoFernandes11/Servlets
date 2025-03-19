@@ -7,7 +7,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 
-public class CategoryDAO extends JpaDAO<Category> implements GenericDAO<Category>{
+public class CategoryDAO extends JpaDAO<Category> implements BaseDAO<Category>{
 
 	public CategoryDAO(EntityManager entityManager) {
 		super(entityManager);

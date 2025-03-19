@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bookstore.entity.Users;
 
-public interface GenericDAO<T> {
+public interface BaseDAO<T> {
 
     public T create(T t);
 

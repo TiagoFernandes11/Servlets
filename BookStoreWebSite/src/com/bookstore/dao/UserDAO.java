@@ -8,7 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 
-public class UserDAO extends JpaDAO<Users> implements GenericDAO<Users>{
+public class UserDAO extends JpaDAO<Users> implements BaseDAO<Users>{
 
     public UserDAO(EntityManager entityManager) {
         super(entityManager);
