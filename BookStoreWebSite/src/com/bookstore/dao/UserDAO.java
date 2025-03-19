@@ -1,6 +1,8 @@
 package com.bookstore.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.bookstore.entity.Users;
 
@@ -45,14 +47,27 @@ public class UserDAO extends JpaDAO<Users> implements BaseDAO<Users>{
     }
     
     public Users findByEmail(String email) {
-    	Query query = entityManager.createQuery("select u from Users u where u.email='" + email + "'");
+    	List<Users> users = super.findWithNamedQuery("Users.findByEmail", "email", email);
     	Users user = null;
-    	try {
-    		user = (Users) query.getSingleResult();
-    	} catch (NoResultException e){
-    		
+    	
+    	if(users != null && users.size() > 0) {
+    		user = users.get(0);
     	}
     	
     	return user;
+    }
+    
+    public boolean checkLogin(String email, String password) {
+    	Map<String, Object> parameters = new HashMap<>();
+    	parameters.put("email", email);
+    	parameters.put("password", password);
+    	
+    	List<Users> listUsers = super.findWithNamedQuery("Users.checkLogin", parameters);
+    	
+    	if(listUsers.size() == 1) {
+    		return true;
+    	}
+    	
+    	return false;
     }
 }

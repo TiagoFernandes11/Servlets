@@ -4,18 +4,21 @@ import com.bookstore.dao.UserDAO;
 import com.bookstore.entity.Users;
 import com.bookstore.service.UsersServices;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class UserDaoTest {
 	public static void main(String args[]) {
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebSite");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
-		UsersServices usersServices = new UsersServices();
+		UserDAO userDAO = new UserDAO(entityManager);
 		
-		List<Users> users = usersServices.listAll();
+		String email = "tiagofernandesribeiro@yahoo.com.br";
+		String password = "minhasenha";
 		
-		for(Users user : users) {
-			System.out.println(user.getUserId() + ", " + user.getEmail() + ", " + user.getFullName());
-		}
+		System.out.println(userDAO.checkLogin(email, password));
 		
 	}
 }

@@ -11,7 +11,9 @@ import lombok.Data;
 @Table(name = "users")
 @NamedQueries({
 	@NamedQuery(name = "Users.findAll", query = "select u from Users u order by u.fullName"),
-	@NamedQuery(name = "Users.countAll", query = "select count(u.userId) from Users u")
+	@NamedQuery(name = "Users.countAll", query = "select count(u.userId) from Users u"),
+	@NamedQuery(name = "Users.findByEmail", query = "select u from Users u where u.email = :email"),
+	@NamedQuery(name = "Users.checkLogin", query = "select u from Users u where u.email = :email and u.password = :password")
 })
 public class Users {
 

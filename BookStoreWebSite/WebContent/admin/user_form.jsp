@@ -48,7 +48,7 @@
 			</div>
 			<div>
 				<label for="password">Password:</label>
-				<input type="password" name="password" id="password" value="${user.password}">
+				<input type="password" name="password" id="password">
 			</div>
 			<div>
 				<input type="submit">
@@ -67,22 +67,22 @@
 	    if (fullName === '') {
 	      alert('Full name is required!');
 	      document.getElementById('fullName').focus();
-	      return false;
+	      return;
 	    }
 
 	    if (email === '') {
 	      alert('Email is required!');
 	      document.getElementById('email').focus();
-	      return false;
+	      return;
 	    }
 
 	    if (password === '') {
 	      alert('Password is required!');
 	      document.getElementById('password').focus();
-	      return false;
+	      return;
 	    }
 
-	    return true;
+	    return;
 	}
 
 </script>
