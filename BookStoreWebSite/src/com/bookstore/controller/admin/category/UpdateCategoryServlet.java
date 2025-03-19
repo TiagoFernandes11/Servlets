@@ -16,16 +16,19 @@ import com.bookstore.service.CategoryServices;
 @WebServlet("/admin/update_category")
 public class UpdateCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private CategoryServices categoryServices;
+	
+	public UpdateCategoryServlet() {
+		super();
+		this.categoryServices = new CategoryServices();
+	}
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CategoryServices categoryServices = new CategoryServices();
-		
 		Integer categoryId = Integer.parseInt(request.getParameter("id"));
 		Category category = categoryServices.findCategory(categoryId);
 		
 		request.setAttribute("category", category);
-		
 		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/category_form.jsp");
 		requestDispatcher.forward(request, response);
@@ -33,7 +36,6 @@ public class UpdateCategoryServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CategoryServices categoryServices = new CategoryServices();
 		Category category = new Category();
 		
 		category.setCategoryId(Integer.parseInt(request.getParameter("id")));

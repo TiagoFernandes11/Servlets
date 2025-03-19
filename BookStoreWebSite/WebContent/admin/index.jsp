@@ -16,9 +16,9 @@
 		<div align="center">
 			<h2>Quick Actions:</h2>
 			<b>
-				<a href="create_book">New Book</a>
-				<a href="create_user">New User</a>
-				<a href="create_category">New Category</a>
+				<a href="create_book">New Book</a>&nbsp &nbsp
+				<a href="create_user">New User</a> &nbsp &nbsp
+				<a href="create_category">New Category</a> &nbsp &nbsp
 				<a href="create_customer">New Customer</a>
 			</b>
 		</div>

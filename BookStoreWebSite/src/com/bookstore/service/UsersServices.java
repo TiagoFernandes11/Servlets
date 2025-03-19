@@ -45,4 +45,8 @@ public class UsersServices {
 		userDao.delete(userId);
 	}
 	
+	public boolean checkLogin(String email, String password) {
+		return userDao.checkLogin(email, password);
+	}
+	
 }
